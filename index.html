@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mushroom</title>
+	</head>
+	<body ng-app="app">
+		<h1>Welcome to the Magical Mushroom World</h1>
+
+			<div ng-controller="ShroomController">
+				<input type="text" placeholder="mushroom search" ng-model="searchText">
+
+				<div ng-init="allowed = false">
+					<input type="button" value="toggle" ng-click="allowed = !allowed">
+
+					<span ng-show="allowed">
+						<h2>Poisonous</h2>
+						<li ng-repeat="shroom in shroomArr">
+						{{shroom.name}}
+						</li>
+					</span>
+
+					<span np-hide="allowed">
+						<h2>Non-Poisonous</h2>
+							<li ng-repeat="shroom in shroomArr">
+							{{shroom.name}}
+							</li>
+					</span>
+
+				</div>
+			</div>
+
+				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+				<script src="app.js"></script>
+			</body>
+		</html>
