@@ -2,7 +2,7 @@
 
 var myShroom = angular.module('app', []);
 
-// console.log("myshroom", myShroom);
+console.log("myshroom", myShroom);
 
 myShroom.factory('ShroomFactory', function($q, $http) {
     function getShrooms() {
@@ -10,7 +10,7 @@ myShroom.factory('ShroomFactory', function($q, $http) {
         return $q( (resolve, reject) => {
             $http.get('mushroom.json')
             .then( (shrooms) => {
-            	// console.log("shrooms", shrooms);
+            	console.log("shrooms", shrooms);
                 resolve(shrooms);
             })
             .catch( (err) => {
@@ -26,12 +26,12 @@ myShroom.controller('ShroomController', function($scope, ShroomFactory) {
     $scope.shroomArr = [];
     ShroomFactory.getShrooms()
     .then( (shroomsData) => {
-        // console.log("shroomsdata", shroomsData);
+        console.log("shroomsdata", shroomsData);
         let shroomList = shroomsData.data.mushrooms;
-        // console.log("shroomList", shroomList);
+        console.log("shroomList", shroomList);
         angular.forEach(shroomList, function(shroomshroom){
         	$scope.shroomArr.push(shroomshroom);
         });
-        // console.log("shroomarr", $scope.shroomArr);
+        console.log("shroomarr", $scope.shroomArr);
     });
 });
